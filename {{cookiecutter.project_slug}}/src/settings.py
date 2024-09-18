@@ -1,18 +1,18 @@
 from pathlib import Path
 
-from src.parsers import *
-from src.parsing_refiners import *
-
+from ai_assistant_parsers_core.parsers import ABCParser, UniversalParser
 from ai_assistant_parsers_core.refiners import (
     ABCParsingRefiner,
-    CleanPostParsingRefiner,
-    RestructurePostParsingRefiner,
+    CleanParsingRefiner,
+    RestructureParsingRefiner,
 )
+
+from src.parsers import *
+from src.refiners import *
 
 
 PARSERS: list[ABCParser] = [
     UniversalParser(),
 ]
-PRE_PARSING_REFINERS: list[ABCParsingRefiner]  = []
-POST_PARSING_REFINERS: list[ABCParsingRefiner] = [CleanPostParsingRefiner(), RestructurePostParsingRefiner()]
+PARSING_REFINERS: list[ABCParsingRefiner] = [CleanParsingRefiner(), RestructureParsingRefiner()]
 RESULTS_PATH = Path("results/")
