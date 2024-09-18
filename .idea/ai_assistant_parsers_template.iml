@@ -5,4 +5,11 @@
     <orderEntry type="jdk" jdkName="Poetry (ai_assistant_parsers_template)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
+  <component name="PyNamespacePackagesService">
+    <option name="namespacePackageFolders">
+      <list>
+        <option value="$MODULE_DIR$/{{cookiecutter.project_slug}}/src" />
+      </list>
+    </option>
+  </component>
 </module>
