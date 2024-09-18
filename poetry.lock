@@ -2,7 +2,7 @@
 
 [[package]]
 name = "ai-assistant-parsers-core"
-version = "0.6.0"
+version = "0.7.1"
 description = ""
 optional = false
 python-versions = "^3.10"
@@ -11,13 +11,15 @@ develop = false
 
 [package.dependencies]
 beautifulsoup4 = "^4.12.3"
+html2text = "^2024.2.26"
+html5lib = "^1.1"
 tldextract = "^5.1.2"
 
 [package.source]
 type = "git"
 url = "https://github.com/GigaUniversity/ai_assistant_parsers_core"
 reference = "HEAD"
-resolved_reference = "2fc27eb8dbd8489840968b09705f447dff6a5d63"
+resolved_reference = "62e8285eba6a22b5c8b4537d0a783b092188d398"
 
 [[package]]
 name = "aiohappyeyeballs"
@@ -524,6 +526,16 @@ files = [
     {file = "frozenlist-1.4.1-cp39-cp39-win_amd64.whl", hash = "sha256:e6a20a581f9ce92d389a8c7d7c3dd47c81fd5d6e655c8dddf341e14aa48659d0"},
     {file = "frozenlist-1.4.1-py3-none-any.whl", hash = "sha256:04ced3e6a46b4cfffe20f9ae482818e34eba9b5fb0ce4056e4cc9b6e212d09b7"},
     {file = "frozenlist-1.4.1.tar.gz", hash = "sha256:c037a86e8513059a2613aaba4d817bb90b9d9b6b69aace3ce9c877e8c8ed402b"},
+]
+
+[[package]]
+name = "html2text"
+version = "2024.2.26"
+description = "Turn HTML into equivalent Markdown-structured text."
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "html2text-2024.2.26.tar.gz", hash = "sha256:05f8e367d15aaabc96415376776cdd11afd5127a77fce6e36afc60c563ca2c32"},
 ]
 
 [[package]]
