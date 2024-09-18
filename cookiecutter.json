@@ -1,0 +1,6 @@
+{
+    "university_name":  "SPBU",
+    "project_name": "AI Assistant Parsers {{cookiecutter.university_name}}",
+    "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+    "authors": "[Anonymous]"
+}

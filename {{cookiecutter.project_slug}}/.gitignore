@@ -1,4 +1,7 @@
-sandbox
+dev/
+dev/input
+templates
+
 
 ### Python template
 # Byte-compiled / optimized / DLL files

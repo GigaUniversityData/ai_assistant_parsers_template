@@ -3,13 +3,11 @@ package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.12"
-cookiecutter = "^2.6.0"
-
-[tool.poetry.group.dev.dependencies]
 ai-assistant-parsers-core = {git = "https://github.com/GigaUniversity/ai_assistant_parsers_core"}
 click = "^8.1.7"
 fake-headers = "^1.0.2"
 aiohttp = "^3.10.5"
+
 
 [build-system]
 requires = ["poetry-core"]
