@@ -1,10 +1,7 @@
 from bs4 import BeautifulSoup
 from aiohttp import ClientSession
 
-from src.parsers import ABCParser
-from ai_assistant_parsers_core.common_utils.beautiful_soup import (
-    converts_relative_links_to_absolute as converts_relative_links_to_absolute_by_soup,
-)
+from ai_assistant_parsers_core.parsers import ABCParser
 from ai_assistant_parsers_core.refiners import ABCParsingRefiner
 
 
@@ -23,15 +20,6 @@ async def fetch_html_by_url(url: str, client: ClientSession) -> str:
             return await response.text(encoding="windows-1251")
 
 
-def process_html_by_refiners(html: str, refiners: list[ABCParsingRefiner]) -> str:
+def process_html_by_refiners(soup: BeautifulSoup, refiners: list[ABCParsingRefiner]) -> None:
     for parsing_refiner in refiners:
-        html = parsing_refiner.refine(html)
-    return html
-
-
-def converts_relative_links_to_absolute(html: str, base_url: str):
-    soup = BeautifulSoup(html, "html5lib")
-
-    converts_relative_links_to_absolute_by_soup(soup, base_url=base_url)
-
-    return str(soup)
+        parsing_refiner.refine(soup)
