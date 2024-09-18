@@ -7,7 +7,12 @@ ai-assistant-parsers-core = {git = "https://github.com/GigaUniversity/ai_assista
 click = "^8.1.7"
 fake-headers = "^1.0.2"
 aiohttp = "^3.10.5"
+html5lib = "^1.1"
 
+
+[tool.poetry.group.dev.dependencies]
+mkinit = "^1.1.0"
+black = "^24.8.0"
 
 [build-system]
 requires = ["poetry-core"]
