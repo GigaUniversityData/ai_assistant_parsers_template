@@ -19,7 +19,7 @@ tldextract = "^5.1.2"
 type = "git"
 url = "https://github.com/GigaUniversity/ai_assistant_parsers_core"
 reference = "HEAD"
-resolved_reference = "0a7571e1077d3a47415e23d60bb4015bcd1332c3"
+resolved_reference = "62e8285eba6a22b5c8b4537d0a783b092188d398"
 
 [[package]]
 name = "aiohappyeyeballs"
