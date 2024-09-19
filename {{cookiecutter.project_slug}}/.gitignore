@@ -1,7 +1,4 @@
-sandbox/
-sandbox/input
-templates
-
+output/
 
 ### Python template
 # Byte-compiled / optimized / DLL files
