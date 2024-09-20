@@ -1,3 +1,4 @@
+from hashlib import md5
 from bs4 import BeautifulSoup
 from aiohttp import ClientSession
 
@@ -23,3 +24,11 @@ async def fetch_html_by_url(url: str, client: ClientSession) -> str:
 def process_html_by_refiners(soup: BeautifulSoup, refiners: list[ABCParsingRefiner]) -> None:
     for parsing_refiner in refiners:
         parsing_refiner.refine(soup)
+
+
+def get_full_parser_name(parser: ABCParser) -> str:
+    return type(parser).__name__
+
+
+def hash_string(string: str, size: int = 10) -> str:
+    return md5(string.encode()).hexdigest()[:size]

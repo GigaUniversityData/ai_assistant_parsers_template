@@ -14,5 +14,8 @@ from src.refiners import *
 PARSERS: list[ABCParser] = [
     UniversalParser(),
 ]
-PARSING_REFINERS: list[ABCParsingRefiner] = [CleanParsingRefiner(), RestructureParsingRefiner()]
-RESULTS_PATH = Path("results/")
+PARSING_REFINERS: list[ABCParsingRefiner] = [
+    CleanParsingRefiner(),
+    RestructureParsingRefiner(),
+]
+RESULTS_PATH = Path("output/")

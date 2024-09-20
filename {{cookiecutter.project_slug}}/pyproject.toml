@@ -3,8 +3,8 @@ name = "{{cookiecutter.project_name}}"
 version = "0.1.0"
 description = ""
 authors = ["{{cookiecutter.author}}"]
-readme = "README.rst"
-packages = [{include = "{{cookiecutter.project_slug}}", from = "src"}]
+readme = "README.md"
+
 
 [tool.poetry.dependencies]
 python = "^3.12"
