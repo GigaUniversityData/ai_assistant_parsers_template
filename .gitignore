@@ -1,4 +1,5 @@
 sandbox
+{{cookiecutter.project_slug}}/.gitignore
 
 ### Python template
 # Byte-compiled / optimized / DLL files
