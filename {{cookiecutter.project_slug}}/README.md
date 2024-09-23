@@ -1,4 +1,4 @@
-# AI Assistant Parsers SPBU (Пример проекта)
+# AI Assistant Parsers {{cookiecutter.university_name}} (Пример проекта)
 
 # Установка
 
