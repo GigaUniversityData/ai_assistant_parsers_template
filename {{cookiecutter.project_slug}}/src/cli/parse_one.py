@@ -46,7 +46,7 @@ def _process_html(html: str, url: str) -> tuple[BeautifulSoup, ABCParser]:
     converts_relative_links_to_absolute(soup=cleaned_soup, base_url=url)
     process_html_by_refiners(soup=cleaned_soup, refiners=PARSING_REFINERS)
 
-    return soup, parser
+    return cleaned_soup, parser
 
 
 def _write_data_to_files(cleaned_soup: BeautifulSoup, url: str, parser: ABCParser, output_dir: Path) -> None:
