@@ -11,7 +11,7 @@ from ai_assistant_parsers_core.common_utils.parse_url import extract_url
 from ai_assistant_parsers_core.turn_html_into_markdown import turn_html_into_markdown
 from ai_assistant_parsers_core.parsers import ABCParser
 
-from src.settings import PARSERS, PARSING_REFINERS, RESULTS_PATH
+from {{cookiecutter.project_slug}}.settings import PARSERS, PARSING_REFINERS, RESULTS_PATH
 
 from .utils.parsers import (
     get_parser_by_url,

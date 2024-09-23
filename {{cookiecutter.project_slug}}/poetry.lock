@@ -2,7 +2,7 @@
 
 [[package]]
 name = "ai-assistant-parsers-core"
-version = "0.7.1"
+version = "0.7.2"
 description = ""
 optional = false
 python-versions = "^3.10"
@@ -19,7 +19,7 @@ tldextract = "^5.1.2"
 type = "git"
 url = "https://github.com/GigaUniversity/ai_assistant_parsers_core"
 reference = "HEAD"
-resolved_reference = "62e8285eba6a22b5c8b4537d0a783b092188d398"
+resolved_reference = "05dec0191dda38eccdf77d6cf61c3ce4847567ab"
 
 [[package]]
 name = "aiohappyeyeballs"

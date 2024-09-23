@@ -7,8 +7,11 @@ from ai_assistant_parsers_core.refiners import (
     RestructureParsingRefiner,
 )
 
-from src.parsers import *
-from src.refiners import *
+from {{cookiecutter.project_slug}}.parsers import *
+from {{cookiecutter.project_slug}}.refiners import *
+
+
+__all__ = ["PARSERS", "PARSING_REFINERS", "RESULTS_PATH"]
 
 
 PARSERS: list[ABCParser] = [
