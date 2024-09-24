@@ -31,22 +31,22 @@ async def parse_one(url: str, output_dir: Path):
 
 
 async def _process_url(client: ClientSession, url: str, output_dir: Path) -> None:
+    parser = get_parser_by_url(url, parsers=PARSERS)
     html = await fetch_html_by_url(url, client=client)
-    cleaned_soup, parser = _process_html(html, url=url)
+
+    cleaned_soup = _process_html(url=url, html=html, parser=parser)
 
     _write_data_to_files(cleaned_soup=cleaned_soup, url=url, parser=parser, output_dir=output_dir)
 
 
-def _process_html(html: str, url: str) -> tuple[BeautifulSoup, ABCParser]:
+def _process_html(html: str, url: str, parser: ABCParser) -> BeautifulSoup:
     soup = BeautifulSoup(html, "html5lib")
-
-    parser = get_parser_by_url(url, parsers=PARSERS)
 
     cleaned_soup = parser.parse(soup)
     converts_relative_links_to_absolute(soup=cleaned_soup, base_url=url)
     process_html_by_refiners(soup=cleaned_soup, refiners=PARSING_REFINERS)
 
-    return cleaned_soup, parser
+    return cleaned_soup
 
 
 def _write_data_to_files(cleaned_soup: BeautifulSoup, url: str, parser: ABCParser, output_dir: Path) -> None:
