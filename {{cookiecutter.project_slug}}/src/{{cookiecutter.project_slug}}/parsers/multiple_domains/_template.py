@@ -14,5 +14,5 @@ class ВСТАВИТЬ_ТЕКСТ_СЮДАDomainParser(SimpleSelectDomainBasePar
     def __init__(self) -> None:
         super().__init__(
             allowed_domains_paths=_ALLOWED_SUBDOMAINS_PATHS,
-            select_arguments=["ВСТАВИТЬ_ТЕКСТ_СЮДА"]
+            select_arguments=["ВСТАВИТЬ_ТЕКСТ_СЮДА"],
         )
