@@ -1,22 +1,30 @@
-# Туториал
+# Туториал по использованию проекта AI-ассистента
 
-## Основы
+Добро пожаловать в туториал по использованию проекта AI-ассистента! 
+Этот пошаговый guide поможет вам освоить основные принципы работы с нашим инструментом для извлечения данных из веб-страниц.
 
-Все парсеры в проекте делятся на 3 группы:
+## Введение
 
-1. Парсеры одного домена (`domain`)
-2. Парсеры нескольких доменов (`multiple_domains`)
-3. Парсеры одной страницы (`page`)
+Парсеры в нашем проекте служат для извлечения и обработки данных из HTML-страниц. 
+Они могут быть настроены для работы с различными типами страниц, будь то отдельные домены, несколько доменов или отдельные страницы. 
+В этом туториале вы узнаете, как создать парсеры для каждого типа страниц, а также как оптимизировать их для получения только нужного контента.
 
-Все они располагаются в папке `src/parsers/` в соответствующих папках. <br>
-В каждой папке есть файлы `_template.py` в начальным кодом для копирования.
+Все парсеры делятся на 3 основные группы:
+
+1. **Парсеры одного домена** (`domain`)
+2. **Парсеры нескольких доменов** (`multiple_domains`)
+3. **Парсеры одной страницы** (`page`)
+
+Каждая группа парсеров находится в папке `src/[имя_вашего_модуля]/parsers/`. <br>
+В каждой папке вы найдете файл `_template.py`, который содержит начальный код для копирования и адаптации.
 
 Давайте для начала напишем парсеры для группы `domain`.
 
-# Domain парсеры
+(парсеры-для-одного-домена)=
+## Парсеры для одного домена
 
 Давайте напишем парсер для домена `abiturient.spbu.ru`. <br>
-Я скопирую код с `_template.py`:
+Сначала скопируем код с `_template.py`:
 ```py
 from bs4 import BeautifulSoup
 
@@ -32,7 +40,7 @@ class ВСТАВИТЬ_ТЕКСТ_СЮДАDomainParser(SimpleSelectDomainBasePar
             select_arguments=["ВСТАВИТЬ_ТЕКСТ_СЮДА"]
         )
 ```
-Теперь мы можем изменить название парсера на `AbiturientDomainParser`, а аргументом для `allowed_domains_paths` передать `["abiturient.spbu.ru"]`:
+Теперь мы изменим название класса на `AbiturientDomainParser`, а параметр `allowed_domains_paths` заменим на `["abiturient.spbu.ru"]`:
 ```py
 class AbiturientDomainParser(SimpleSelectDomainBaseParser):
     def __init__(self) -> None:
@@ -41,23 +49,30 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
             select_arguments=["ВСТАВИТЬ_ТЕКСТ_СЮДА"],
         )
 ```
+
+### Что такое `select_arguments`?
+
 Как мы видим нам ещё требуется `select_arguments`, но что же это?
 
-CSS-Selector - это шаблоны, по которым парсер может находить HTML-документы. <br/>
-Если вы не знакомы с ними, то можете почитать про них подробнее здесь, в них нет ничего трудного:
+CSS-Selector - это шаблон для поиска элементов в HTML-документах. Парсер использует эти селекторы для нахождения нужных тегов и их детей. Если вы не знакомы с CSS-селекторами, рекомендуем ознакомиться с ними здесь:
 - https://developer.mozilla.org/ru/docs/Web/CSS/CSS_selectors
 - https://facelessuser.github.io/soupsieve/selectors/
 
 
-А от нас требуют как раз список специальных CSS-Selector, которые укажут парсеру какие HTML-теги вместе с их детьми оставить в структуре HTML-кода. <br/>
+От нас требуют как раз список специальных CSS-Selector, которые укажут парсеру какие HTML-теги вместе с их детьми оставить в структуре HTML-кода. <br/>
 Все остальные теги будут удалены из структуры HTML-кода. Например, шапка и подвал, которые встречаются на всех страницах, но не несут полезной нам информации. <br/>
 
-Простыми словами: мы указываем такие HTML-теги, в которых храниться действительно полезный контент страницы. <br/>
+Простыми словами: с помощью селекторов вы указываете HTML-теги, в которых хранится полезный контент страницы. Все остальные теги будут проигнорированы.
+
+### Пример использования select_arguments
 
 Давайте рассмотрим какую-то страницу из нашего поддомена, например https://abiturient.spbu.ru/programs/bakalavriat/.
-Через консоль разработчика не сложно определить, что это `.page-main`.
+Через консоль разработчика можно определить, что нужный контент находится в блоке `.page-main`:
 
-Тогда наш код будет следующим:
+![alt](./images/tutorial_1.png)
+
+Тогда наш код будет выглядеть так:
+
 ```py
 class AbiturientDomainParser(SimpleSelectDomainBaseParser):
     def __init__(self) -> None:
@@ -66,7 +81,10 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
             select_arguments=[".page-main"],
         )
 ```
-Но погодите, у нас захватывается так же `.page-main > aside` в нашем HTML-коде, который не является полезным.
+
+### Очистка HTML-кода
+
+Но погодите, вместе с `.page-main` захватывается блок `.page-main > aside`, который не содержит полезной информации.
 
 К счастью в этом случае у нас есть 2 метода для реализации в нашем классе: 
 - `_clean_parsed_html` - для очистки HTML-кода.
@@ -88,16 +106,17 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
     def _clean_parsed_html(self, soup: BeautifulSoup) -> None:
         clean_one_by_select(soup, ".page-main > aside")
 ```
-Та-дам, теперь у нас очищается `.page-main > aside` - прекрасно.
+Та-дам, теперь блок `.page-main > aside` будет очищен, что прекрасно.
 
+### Изменение структуры HTML
 Но есть ещё пара проблем - давайте рассмотрим их по порядку
 
 1. Блоки `.useful-info` обрабатываются не корректно. 
 А именно: блок `.useful-info__link` не нужен, а блок `h2.info-definition__title` должен иметь тег `h4`, а не `h2`
 2. Блоки `.accordion__button > span` не помечены тегом заголовка, но несут его смысловую нагрузку.
 
-
 Давайте это исправим, используя `_restructure_parsed_html` и `ai_assistant_parsers_core.parsers.utils.restructure_blocks`.
+
 Тогда наш полный код будет выглядеть следующим образом:
 ```py
 from bs4 import BeautifulSoup
@@ -127,11 +146,11 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
 
         rename_all_by_select(soup, ".accordion__button > span", "h3")
 ```
-И ура, мы написали парсер, который выполняет нужным нам функции!
+И ура, мы написали парсер, который правильно очищает и перестраивает HTML-код, оставляя только нужные данные!
 
-## Multiple domains парсеры
+## Парсеры для нескольких доменов
 
-Абсолютно такие же парсеры, как и "Domain парсеры", но у них в параметре `allowed_domains_paths` задаётся список не с одним элементом, а со множеством.
+Такие же парсеры, как и [парсеры для одного домена](#парсеры-для-одного-домена), но у них в параметре `allowed_domains_paths` задаётся список не с одним элементом, а со множеством.
 
 Пример:
 ```py
@@ -153,23 +172,23 @@ class TMContentParser(SimpleSelectDomainBaseParser):
         )
 ```
 
-## Page парсеры
+## Парсеры для одной страницы
 
-Такие же, как и "Domain парсеры", н вместо `allowed_domains_paths` требуют `allowed_paths`.
+Такие же парсеры, как и [парсеры для одного домена](#парсеры-для-одного-домена), но включают параметр `included_paths`, который позволяет ограничить работу парсера определёнными URL.
 
 Пример:
 ```py
-from ai_assistant_parsers_core.parsers import SimpleSelectPageBaseParser
+from ai_assistant_parsers_core.parsers import SimpleSelectDomainBaseParser
 
 
-class AbiturientMainPageParser(SimpleSelectPageBaseParser):
+class MainAbiturientPageParser(SimpleSelectDomainBaseParser):
     def __init__(self) -> None:
         super().__init__(
-            allowed_paths=["abiturient.spbu.ru/"],
+            allowed_domains_paths=["abiturient.spbu.ru"],
             select_arguments=["main"],
+            included_paths=["/"],
         )
 ```
 
-## Использование
-
-## Пример проекта
+```{include} _additional_resources.md
+```

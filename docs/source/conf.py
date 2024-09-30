@@ -18,7 +18,6 @@ extensions = [
     "sphinx.ext.duration",
     "sphinx.ext.graphviz",
     "sphinx.ext.intersphinx",
-    "sphinx.ext.linkcode",
     "sphinx.ext.viewcode",
     "sphinx.ext.coverage",
 
