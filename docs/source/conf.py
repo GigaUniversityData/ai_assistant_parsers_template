@@ -7,8 +7,8 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = "AI assistant parsers template"
-copyright = "2024, Lev145"
-author = "Lev145"
+copyright = "2024, AI Assistant"
+author = "AI Assistant"
 release = "0.2.0"
 
 # -- General configuration ---------------------------------------------------
