@@ -54,7 +54,7 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
 
 Как мы видим нам ещё требуется `select_arguments`, но что же это?
 
-CSS-Selector - это шаблон для поиска элементов в HTML-документах. Парсер использует эти селекторы для нахождения нужных тегов и их детей. Если вы не знакомы с CSS-селекторами, рекомендуем ознакомиться с ними здесь:
+CSS-Selector - это шаблон для поиска элементов в HTML-документах. Парсер использует эти селекторы для нахождения нужных тегов и их дочерних элементов. Если вы не знакомы с CSS-селекторами, рекомендуем ознакомиться с ними здесь:
 - https://developer.mozilla.org/ru/docs/Web/CSS/CSS_selectors
 - https://facelessuser.github.io/soupsieve/selectors/
 
