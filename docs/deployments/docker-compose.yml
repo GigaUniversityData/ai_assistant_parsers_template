@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  webapp:
+    image: ai_assistant_parsers_template
+    ports:
+      - "1250:8000"
