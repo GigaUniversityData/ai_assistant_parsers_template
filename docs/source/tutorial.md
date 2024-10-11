@@ -23,7 +23,20 @@
 (парсеры-для-одного-домена)=
 ## Парсеры для одного домена
 
-Давайте напишем парсер для домена `abiturient.spbu.ru`. <br>
+Давайте напишем парсер для домена `abiturient.spbu.ru`.
+
+```{hint}
+Рекомендуется создавать файлы в папке `src/[имя_вашего_модуля]/parsers/domain`. 
+
+Эта структура помогает организовать парсеры по доменам и облегчает их поиск и управление.
+Однако вы можете создать файл в любом месте, главное в последствии правильно импортировать парсер в `src/[имя_вашего_модуля]/settings.py`
+```
+
+Создадим файл `abiturient.py` в папке `src/[имя_вашего_модуля]/parsers/domain`.
+
+В файле abiturient.py мы создадим класс парсера, 
+который будет отвечать за извлечение данных со страниц, входящих в домен `abiturient.spbu.ru`.
+
 Сначала скопируем код с `_template.py`:
 ```py
 from bs4 import BeautifulSoup
@@ -55,8 +68,8 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
 Как мы видим нам ещё требуется `select_arguments`, но что же это?
 
 CSS-Selector - это шаблон для поиска элементов в HTML-документах. Парсер использует эти селекторы для нахождения нужных тегов и их дочерних элементов. Если вы не знакомы с CSS-селекторами, рекомендуем ознакомиться с ними здесь:
-- https://developer.mozilla.org/ru/docs/Web/CSS/CSS_selectors
-- https://facelessuser.github.io/soupsieve/selectors/
+- <https://developer.mozilla.org/ru/docs/Web/CSS/CSS_selectors>
+- <https://facelessuser.github.io/soupsieve/selectors/>
 
 
 От нас требуют как раз список специальных CSS-Selector, которые укажут парсеру какие HTML-теги вместе с их детьми оставить в структуре HTML-кода. <br/>
@@ -66,7 +79,7 @@ CSS-Selector - это шаблон для поиска элементов в HTM
 
 ### Пример использования select_arguments
 
-Давайте рассмотрим какую-то страницу из нашего поддомена, например https://abiturient.spbu.ru/programs/bakalavriat/.
+Давайте рассмотрим какую-то страницу из нашего поддомена, например <https://abiturient.spbu.ru/programs/bakalavriat/>.
 Через консоль разработчика можно определить, что нужный контент находится в блоке `.page-main`:
 
 ![alt](./images/tutorial_1.png)
@@ -152,6 +165,10 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
 
 Такие же парсеры, как и [парсеры для одного домена](#парсеры-для-одного-домена), но у них в параметре `allowed_domains_paths` задаётся список не с одним элементом, а со множеством.
 
+```{hint}
+Рекомендуется создавать файлы в папке `src/[имя_вашего_модуля]/parsers/multiple_domains`.
+```
+
 Пример:
 ```py
 from ai_assistant_parsers_core.parsers import SimpleSelectDomainBaseParser
@@ -176,6 +193,10 @@ class TMContentParser(SimpleSelectDomainBaseParser):
 
 Такие же парсеры, как и [парсеры для одного домена](#парсеры-для-одного-домена), но включают параметр `included_paths`, который позволяет ограничить работу парсера определёнными URL.
 
+```{hint}
+Рекомендуется создавать файлы в папке `src/[имя_вашего_модуля]/parsers/page`.
+```
+
 Пример:
 ```py
 from ai_assistant_parsers_core.parsers import SimpleSelectDomainBaseParser
@@ -189,6 +210,83 @@ class MainAbiturientPageParser(SimpleSelectDomainBaseParser):
             included_paths=["/"],
         )
 ```
+
+## Подключение парсеров и запуск
+
+Давайте теперь подключим наши парсеры в проект.
+
+Наша задача - импортировать все парсеры в файл `src/[имя_вашего_модуля]/settings.py`.
+
+Мы всегда можем сделать это вручную, но ради удобства воспользуемся скриптом `scripts/mkinit`.
+
+Пишем в консоль:
+```bash
+python -m scripts.mkinit
+```
+Теперь во всех папках заполнились `__init__.py` файлы, а значит мы можем импортировать папки как модули!
+
+Тем самым импортируем всё содержимое из папки `src/[имя_вашего_модуля]/parsers/`
+и даже `src/[имя_вашего_модуля]/refiners/` при необходимости.
+
+Тогда наш итоговый `settings.py` будет выглядеть так:
+```py
+from pathlib import Path
+
+from ai_assistant_parsers_core.parsers import ABCParser, UniversalParser
+from ai_assistant_parsers_core.refiners import (
+    ABCParsingRefiner,
+    CleanParsingRefiner,
+    RestructureParsingRefiner,
+)
+
+from [имя_вашего_модуля].parsers import *
+from [имя_вашего_модуля].refiners import *
+
+
+__all__ = ["PARSERS", "PARSING_REFINERS", "RESULTS_PATH"]
+
+
+PARSERS: list[ABCParser] = [
+    # Парсеры для нескольких доменов
+    TMContentParser(),
+
+    # Парсеры для одного домена
+    AbiturientDomainParser(),
+
+    # Парсеры для одной страницы
+    MainAbiturientPageParser(),
+
+    # Остальные парсеры
+    UniversalParser(),
+]
+PARSING_REFINERS: list[ABCParsingRefiner] = [
+    CleanParsingRefiner(),
+    RestructureParsingRefiner(),
+]
+RESULTS_PATH = Path("output/")
+```
+
+Проверяем работоспособность запарсив какую-либо страницу, например <https://abiturient.spbu.ru/>:
+```bash
+$ python -m src.cli.parse_one https://abiturient.spbu.ru/                                                                
+MainAbiturientPageParser
+file:///home/lev145/Projects/SberAI/[имя_вашего_модуля]/output/parse_one/abiturient_5e5265ce7b/result.html
+file:///home/lev145/Projects/SberAI/[имя_вашего_модуля]/output/parse_one/abiturient_5e5265ce7b/result.md
+```
+
+```{hint}
+Строка `MainAbiturientPageParser` в выводе указывает на то, какой именно парсер был использован для обработки указанной страницы.
+```
+
+В результате выполнения команды создаются два файла:
+- `result.html`: содержит извлеченные данные в формате HTML, удобном для просмотра в браузере.
+- `result.md`: содержит те же данные в формате Markdown, которые будет использовать AI-помощник для обучения.
+
+```{hint}
+Результаты парсинга вы найдете в директории, указанной в переменной `RESULTS_PATH` в файле `settings.py`.
+```
+
+Вы можете открыть эти файлы для просмотра извлеченных данных и оценки работы парсера.
 
 ```{include} _additional_resources.md
 ```
