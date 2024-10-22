@@ -211,6 +211,13 @@ class MainAbiturientPageParser(SimpleSelectDomainBaseParser):
         )
 ```
 
+```{note}
+Параметр `included_paths` может принимать не только список строк, но и список шаблонов пути.
+![alt](./images/pattern.png)
+
+Аналогично и параметр `excluded_paths` может принимать список шаблонов.
+```
+
 ## Подключение парсеров и запуск
 
 Давайте теперь подключим наши парсеры в проект.
