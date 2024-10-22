@@ -250,7 +250,7 @@ from [имя_вашего_модуля].parsers import *
 from [имя_вашего_модуля].refiners import *
 
 
-__all__ = ["PARSERS", "PARSING_REFINERS", "RESULTS_PATH"]
+__all__ = ["PARSERS", "PARSING_REFINERS"]
 
 
 PARSERS: list[ABCParser] = [
@@ -270,12 +270,11 @@ PARSING_REFINERS: list[ABCParsingRefiner] = [
     CleanParsingRefiner(),
     RestructureParsingRefiner(),
 ]
-RESULTS_PATH = Path("output/")
 ```
 
 Проверяем работоспособность запарсив какую-либо страницу, например <https://abiturient.spbu.ru/>:
 ```bash
-$ python -m src.cli.parse_one https://abiturient.spbu.ru/                                                                
+$ python -m scripts.parse_one https://abiturient.spbu.ru/                                                                
 MainAbiturientPageParser
 file:///home/lev145/Projects/SberAI/[имя_вашего_модуля]/output/parse_one/abiturient_5e5265ce7b/result.html
 file:///home/lev145/Projects/SberAI/[имя_вашего_модуля]/output/parse_one/abiturient_5e5265ce7b/result.md
@@ -290,7 +289,7 @@ file:///home/lev145/Projects/SberAI/[имя_вашего_модуля]/output/pa
 - `result.md`: содержит те же данные в формате Markdown, которые будет использовать AI-помощник для обучения.
 
 ```{hint}
-Результаты парсинга вы найдете в директории, указанной в переменной `RESULTS_PATH` в файле `settings.py`.
+Результаты парсинга вы найдете в директории, указанной в переменной `RESULTS_PATH` в файле `scripts/parse_one.py`.
 ```
 
 Вы можете открыть эти файлы для просмотра извлеченных данных и оценки работы парсера.

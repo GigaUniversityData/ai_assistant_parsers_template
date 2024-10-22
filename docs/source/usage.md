@@ -12,10 +12,9 @@
 ├── sandbox                             # Директория для экспериментов и тестов
 │   └── parse_many.ipynb                # Jupyter ноутбук для парсинга нескольких URL
 ├── scripts                             # Вспомогательные скрипты
+│   ├── parse_one.py                    # Скрипт для парсинга одного URL
 │   └── mkinit.py                       # Скрипт для авто-генерации `__init__.py` файлов
 └── src                                 # Исходный код проекта
-    ├── cli                             # CLI-утилиты
-    │   └── parse_one.py                # Утилита для парсинга одного URL
     └── [имя_вашего_пакета]
         ├── settings.py                 # Настройки проекта
         ├── parsers                     # Модули парсеров
@@ -51,10 +50,10 @@
 
 ### Парсинг одного URL
 
-Используйте CLI-утилиту `parse_one` для парсинга одного сайта:
+Используйте скрипт `parse_one` для парсинга одного сайта:
 
 ```bash
-python -m src.cli.parse_one https://spbu.ru/universitet
+python -m scripts.parse_one https://spbu.ru/universitet
 ```
 
 Результаты будут сохранены в директории `output/parse_one/`.
