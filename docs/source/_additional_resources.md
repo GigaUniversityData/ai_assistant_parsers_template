@@ -4,6 +4,7 @@
 
 - [Инструкция по использованию](./usage.md): подробное руководство по работе с проектом
 - [Туториал](./tutorial.md): пошаговое обучение для новичков
+- [Расширенная инструкция по использованию](./advanced_usage/index.md): подробное руководство по работе с проектом
 - [Пример готового проекта](https://github.com/GigaUniversity/ai_assistant_parsers_example): демонстрация реального проекта
 - [Документация ядра](https://github.com/GigaUniversity/ai_assistant_parsers_core): описание возможностей базовой библиотеки `ai_assistant_parsers_core`
 
