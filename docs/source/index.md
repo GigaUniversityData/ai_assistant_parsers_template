@@ -7,5 +7,5 @@ about
 installation
 usage
 tutorial
-advanced_usage
+advanced_usage/index
 ```
