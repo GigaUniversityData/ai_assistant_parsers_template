@@ -82,7 +82,7 @@ CSS-Selector - это шаблон для поиска элементов в HTM
 Давайте рассмотрим какую-то страницу из нашего поддомена, например <https://abiturient.spbu.ru/programs/bakalavriat/>.
 Через консоль разработчика можно определить, что нужный контент находится в блоке `.page-main`:
 
-![alt](./images/tutorial_1.png)
+![alt](./_static/images/tutorial_1.png)
 
 Тогда наш код будет выглядеть так:
 
@@ -213,7 +213,7 @@ class MainAbiturientPageParser(SimpleSelectDomainBaseParser):
 
 ```{note}
 Параметр `included_paths` может принимать не только список строк, но и список шаблонов пути.
-![alt](./images/pattern.png)
+![alt](./_static/images/pattern.png)
 
 Аналогично и параметр `excluded_paths` может принимать список шаблонов.
 ```
