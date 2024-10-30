@@ -7,4 +7,5 @@ about
 installation
 usage
 tutorial
+advanced_usage
 ```
