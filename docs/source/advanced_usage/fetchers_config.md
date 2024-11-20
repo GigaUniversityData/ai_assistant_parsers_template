@@ -45,6 +45,7 @@ FETCHERS_CONFIG = {
 Тогда добавим `SeleniumFetcher` в наш `settings.py` следующим образом.
 ```py
 from selenium import webdriver
+from ai_assistant_parsers_core.fetchers import SeleniumFetcher
 
 
 ...
