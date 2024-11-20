@@ -1,8 +1,7 @@
 from ai_assistant_parsers_core.parsers import ABCParser, UniversalParser
 from ai_assistant_parsers_core.refiners import (
     ABCParsingRefiner,
-    CleanParsingRefiner,
-    RestructureParsingRefiner,
+    DefaultRefiner,
 )
 
 from {{cookiecutter.project_slug}}.parsers import *
@@ -16,6 +15,5 @@ PARSERS: list[ABCParser] = [
     UniversalParser(),
 ]
 PARSING_REFINERS: list[ABCParsingRefiner] = [
-    CleanParsingRefiner(),
-    RestructureParsingRefiner(),
+    DefaultRefiner(),
 ]
