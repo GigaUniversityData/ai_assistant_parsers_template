@@ -6,5 +6,5 @@ from ai_assistant_parsers_core.parsers.utils.restructure_blocks import *
 
 
 class CleanASideParsingRefiner(ABCParsingRefiner):
-    def refine(self, soup: BeautifulSoup) -> None:
+    def refine(self, soup: BeautifulSoup, url: str) -> None:
         ...
