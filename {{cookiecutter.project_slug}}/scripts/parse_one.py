@@ -1,17 +1,10 @@
-import asyncio
 import sys
 from pathlib import Path
-
-from ai_assistant_parsers_core.cli import parse_one
+import subprocess
 
 
 RESULTS_PATH = Path("output/parse_one")
+URL = sys.argv[1]
 
 
-async def main() -> None:
-    url = sys.argv[1]
-    await parse_one.callback("{{cookiecutter.project_slug}}", RESULTS_PATH, url)
-
-
-if __name__ == "__main__":
-    asyncio.run(main())
+subprocess.run(["python", "-m", "ai_assistant_parsers_core.cli", "{{cookiecutter.project_slug}}", RESULTS_PATH, URL])
