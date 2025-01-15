@@ -46,8 +46,6 @@ FETCHERS_CONFIG = {
 ```py
 from selenium import webdriver
 from ai_assistant_parsers_core.fetchers import SeleniumFetcher
-
-
 ...
 fetcher = SeleniumFetcher(webdriver.Firefox)
 FETCHERS_CONFIG = {
