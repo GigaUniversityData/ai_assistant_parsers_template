@@ -1,5 +1,9 @@
 # Философия парсинга
 
+```{attention}
+Данный раздел ещё в разработке.
+```
+
 ## Краткий обзор
 
 При парсинге сайтов часто возникают вопросы:
@@ -163,4 +167,7 @@ class ChemDomainParser(SimpleSelectDomainBaseParser):
             for tag in soup.select(f".person .contact-details__item > .{icon_data['tag']}"):
                 tag.name = "span"
                 tag.replace_with(BeautifulSoup(f"<b>{icon_data['title']}:</b> ", "html.parser"))
+```
+
+```{include} _additional_resources.md
 ```
