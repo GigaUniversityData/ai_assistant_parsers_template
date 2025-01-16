@@ -40,7 +40,7 @@
 Сначала скопируем код с `_template.py`:
 ```py
 from bs4 import BeautifulSoup
-
+from ai_assistant_parsers_core.magic_url import MagicURL
 from ai_assistant_parsers_core.parsers.utils.clean_blocks import *
 from ai_assistant_parsers_core.parsers.utils.restructure_blocks import *
 from ai_assistant_parsers_core.parsers import SimpleSelectDomainBaseParser
@@ -50,7 +50,7 @@ class ВСТАВИТЬ_ТЕКСТ_СЮДАDomainParser(SimpleSelectDomainBasePar
     def __init__(self) -> None:
         super().__init__(
             allowed_domains_paths=["ВСТАВИТЬ_ТЕКСТ_СЮДА"],
-            select_arguments=["ВСТАВИТЬ_ТЕКСТ_СЮДА"]
+            select_arguments=["ВСТАВИТЬ_ТЕКСТ_СЮДА"],
         )
 ```
 Теперь мы изменим название класса на `AbiturientDomainParser`, а параметр `allowed_domains_paths` заменим на `["abiturient.spbu.ru"]`:
@@ -106,7 +106,7 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
 Давайте воспользуемся методом `_clean_parsed_html` и утилитами из `ai_assistant_parsers_core.parsers.utils.clean_blocks`:
 ```py
 from bs4 import BeautifulSoup
-
+from ai_assistant_parsers_core.magic_url import MagicURL
 from ai_assistant_parsers_core.parsers.utils.clean_blocks import clean_one_by_select
 ...
 class AbiturientDomainParser(SimpleSelectDomainBaseParser):
@@ -116,7 +116,7 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
             select_arguments=[".page-main"],
         )
         
-    def _clean_parsed_html(self, soup: BeautifulSoup) -> None:
+    def _clean_parsed_html(self, soup: BeautifulSoup, magic_url: MagicURL) -> None:
         clean_one_by_select(soup, ".page-main > aside")
 ```
 Та-дам, теперь блок `.page-main > aside` будет очищен, что прекрасно.
@@ -133,7 +133,7 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
 Тогда наш полный код будет выглядеть следующим образом:
 ```py
 from bs4 import BeautifulSoup
-
+from ai_assistant_parsers_core.magic_url import MagicURL
 from ai_assistant_parsers_core.parsers.utils.clean_blocks import clean_all_by_select, clean_one_by_select
 from ai_assistant_parsers_core.parsers.utils.restructure_blocks import rename_all_by_select
 from ai_assistant_parsers_core.parsers import SimpleSelectDomainBaseParser
@@ -146,10 +146,10 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
             select_arguments=[".page-main"],
         )
         
-    def _clean_parsed_html(self, soup: BeautifulSoup) -> None:
+    def _clean_parsed_html(self, soup: BeautifulSoup, magic_url: MagicURL) -> None:
         clean_one_by_select(soup, ".page-main > aside")
 
-    def _restructure_parsed_html(self, soup: BeautifulSoup) -> None:
+    def _restructure_parsed_html(self, soup: BeautifulSoup, magic_url: MagicURL) -> None:
         clean_all_by_select(soup, "button.useful-info__link")  # Кнопки "подробнее" не нужны из-за кривой структуры
         rename_all_by_select(
             soup,
