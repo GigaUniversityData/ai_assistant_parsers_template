@@ -50,7 +50,7 @@ class ВСТАВИТЬ_ТЕКСТ_СЮДАDomainParser(SimpleSelectDomainBasePar
     def __init__(self) -> None:
         super().__init__(
             allowed_domains_paths=["ВСТАВИТЬ_ТЕКСТ_СЮДА"],
-            select_arguments=["ВСТАВИТЬ_ТЕКСТ_СЮДА"]
+            select_arguments=["ВСТАВИТЬ_ТЕКСТ_СЮДА"],
         )
 ```
 Теперь мы изменим название класса на `AbiturientDomainParser`, а параметр `allowed_domains_paths` заменим на `["abiturient.spbu.ru"]`:
