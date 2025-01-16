@@ -54,7 +54,16 @@ class ВСТАВИТЬ_ТЕКСТ_СЮДАDomainParser(SimpleSelectDomainBasePar
         )
 ```
 Теперь мы изменим название класса на `AbiturientDomainParser`, а параметр `allowed_domains_paths` заменим на `["abiturient.spbu.ru"]`:
-```py
+```{code-block} python
+:emphasize-lines: 11
+
+from bs4 import BeautifulSoup
+from ai_assistant_parsers_core.magic_url import MagicURL
+from ai_assistant_parsers_core.parsers.utils.clean_blocks import *
+from ai_assistant_parsers_core.parsers.utils.restructure_blocks import *
+from ai_assistant_parsers_core.parsers import SimpleSelectDomainBaseParser
+
+
 class AbiturientDomainParser(SimpleSelectDomainBaseParser):
     def __init__(self) -> None:
         super().__init__(
@@ -86,7 +95,16 @@ CSS-Selector - это шаблон для поиска элементов в HTM
 
 Тогда наш код будет выглядеть так:
 
-```py
+```{code-block} python
+:emphasize-lines: 11-12
+
+from bs4 import BeautifulSoup
+from ai_assistant_parsers_core.magic_url import MagicURL
+from ai_assistant_parsers_core.parsers.utils.clean_blocks import *
+from ai_assistant_parsers_core.parsers.utils.restructure_blocks import *
+from ai_assistant_parsers_core.parsers import SimpleSelectDomainBaseParser
+
+
 class AbiturientDomainParser(SimpleSelectDomainBaseParser):
     def __init__(self) -> None:
         super().__init__(
@@ -104,11 +122,16 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
 - `_restructure_parsed_html` - для изменения структуры HTML-кода
 
 Давайте воспользуемся методом `_clean_parsed_html` и утилитами из `ai_assistant_parsers_core.parsers.utils.clean_blocks`:
-```py
+```{code-block} python
+:emphasize-lines: 3,15-16
+
 from bs4 import BeautifulSoup
 from ai_assistant_parsers_core.magic_url import MagicURL
 from ai_assistant_parsers_core.parsers.utils.clean_blocks import clean_one_by_select
-...
+from ai_assistant_parsers_core.parsers.utils.restructure_blocks import *
+from ai_assistant_parsers_core.parsers import SimpleSelectDomainBaseParser
+
+
 class AbiturientDomainParser(SimpleSelectDomainBaseParser):
     def __init__(self) -> None:
         super().__init__(
@@ -131,7 +154,9 @@ class AbiturientDomainParser(SimpleSelectDomainBaseParser):
 Давайте это исправим, используя `_restructure_parsed_html` и `ai_assistant_parsers_core.parsers.utils.restructure_blocks`.
 
 Тогда наш полный код будет выглядеть следующим образом:
-```py
+```{code-block} python
+:emphasize-lines: 4,18-26
+
 from bs4 import BeautifulSoup
 from ai_assistant_parsers_core.magic_url import MagicURL
 from ai_assistant_parsers_core.parsers.utils.clean_blocks import clean_all_by_select, clean_one_by_select
