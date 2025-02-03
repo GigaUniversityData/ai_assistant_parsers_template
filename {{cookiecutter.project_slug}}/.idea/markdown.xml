@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MarkdownSettings">
+    <option name="customStylesheetText" value="h1:after {&#10;    content: &quot; (h1)&quot;;&#10;}&#10;h2:after {&#10;    content: &quot; (h2)&quot;;&#10;}&#10;h3:after {&#10;    content: &quot; (h3)&quot;;&#10;}&#10;h4:after {&#10;    content: &quot; (h4)&quot;;&#10;}&#10;h5:after {&#10;    content: &quot; (h5)&quot;;&#10;}&#10;h6:after {&#10;    content: &quot; (h6)&quot;;&#10;}&#10;&#10;h1 {&#10;    font-size: 2em;&#10;    color: #E23D28;&#10;}&#10;h2 {&#10;    font-size: 1.5em;&#10;    color: #e27c28;&#10;}&#10;h3 {&#10;    font-size: 1.25em;&#10;    color: #e2ba28;&#10;}&#10;h4 {&#10;    font-size: 1.1em;&#10;    color: #cce228;&#10;}&#10;h5 {&#10;    font-size: .875em;&#10;    color: #8ee228;&#10;}&#10;h6 {&#10;    font-size: .85em;&#10;}" />
+    <option name="useCustomStylesheetText" value="true" />
+  </component>
+</project>
