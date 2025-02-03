@@ -1,0 +1,42 @@
+h1:after {
+    content: " (h1)";
+}
+h2:after {
+    content: " (h2)";
+}
+h3:after {
+    content: " (h3)";
+}
+h4:after {
+    content: " (h4)";
+}
+h5:after {
+    content: " (h5)";
+}
+h6:after {
+    content: " (h6)";
+}
+
+h1 {
+    font-size: 2em;
+    color: #E23D28;
+}
+h2 {
+    font-size: 1.5em;
+    color: #e27c28;
+}
+h3 {
+    font-size: 1.25em;
+    color: #e2ba28;
+}
+h4 {
+    font-size: 1.1em;
+    color: #cce228;
+}
+h5 {
+    font-size: .875em;
+    color: #8ee228;
+}
+h6 {
+    font-size: .85em;
+}
