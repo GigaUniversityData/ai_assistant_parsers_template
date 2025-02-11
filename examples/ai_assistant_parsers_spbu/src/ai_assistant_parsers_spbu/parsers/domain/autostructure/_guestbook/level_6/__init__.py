@@ -1,0 +1,7 @@
+from .en_directorsofinstitutes__avlenij_ypravpoorgpriema import (
+    EnDirectorsOfInstitutesSIDudnik71VseObrashcheniyaNachalnikiUpravlenijYpravPoOrgPriemaGuestbookDomainParser,
+)
+
+__all__ = [
+    "EnDirectorsOfInstitutesSIDudnik71VseObrashcheniyaNachalnikiUpravlenijYpravPoOrgPriemaGuestbookDomainParser"
+]

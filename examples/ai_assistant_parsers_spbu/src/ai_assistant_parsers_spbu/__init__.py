@@ -1,11 +1,10 @@
 from .parsers import (
     AbiturientDomainParser,
-    AbiturientMainPageParser,
     CampusDomainParser,
     FundDomainParser,
-    PayDomainParser,
+    MainAbiturientPageParser,
     StudsovetDomainParser,
-    TMContentParser,
+    TMContentMultipleDomainsParser,
     WWWDomainParser,
 )
 from .refiners import (
@@ -20,16 +19,15 @@ from .settings import (
 
 __all__ = [
     "AbiturientDomainParser",
-    "AbiturientMainPageParser",
     "CampusDomainParser",
     "CleanASideParsingRefiner",
     "CleanEmptyTagsParsingRefiner",
     "FundDomainParser",
     "HideProtectedMailsParsingRefiner",
+    "MainAbiturientPageParser",
     "PARSERS",
     "PARSING_REFINERS",
-    "PayDomainParser",
     "StudsovetDomainParser",
-    "TMContentParser",
+    "TMContentMultipleDomainsParser",
     "WWWDomainParser",
 ]

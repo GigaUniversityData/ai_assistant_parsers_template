@@ -2,24 +2,22 @@ from .domain import (
     AbiturientDomainParser,
     CampusDomainParser,
     FundDomainParser,
-    PayDomainParser,
     StudsovetDomainParser,
     WWWDomainParser,
 )
 from .multiple_domains import (
-    TMContentParser,
+    TMContentMultipleDomainsParser,
 )
 from .page import (
-    AbiturientMainPageParser,
+    MainAbiturientPageParser,
 )
 
 __all__ = [
     "AbiturientDomainParser",
-    "AbiturientMainPageParser",
     "CampusDomainParser",
     "FundDomainParser",
-    "PayDomainParser",
+    "MainAbiturientPageParser",
     "StudsovetDomainParser",
-    "TMContentParser",
+    "TMContentMultipleDomainsParser",
     "WWWDomainParser",
 ]

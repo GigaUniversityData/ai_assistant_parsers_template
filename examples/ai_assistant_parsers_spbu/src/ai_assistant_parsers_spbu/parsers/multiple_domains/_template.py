@@ -10,7 +10,7 @@ _ALLOWED_SUBDOMAINS_PATHS = [
 ]
 
 
-class ВСТАВИТЬ_ТЕКСТ_СЮДАDomainParser(SimpleSelectDomainBaseParser):
+class ВСТАВИТЬ_ТЕКСТ_СЮДАMultipleDomainsParser(SimpleSelectDomainBaseParser):
     def __init__(self) -> None:
         super().__init__(
             allowed_domains_paths=_ALLOWED_SUBDOMAINS_PATHS,

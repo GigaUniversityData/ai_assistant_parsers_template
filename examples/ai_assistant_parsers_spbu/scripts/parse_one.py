@@ -1,17 +1,10 @@
-import asyncio
 import sys
-from pathlib import Path
-
-from ai_assistant_parsers_core.cli import parse_one
-
-
-RESULTS_PATH = Path("output/parse_one")
+import subprocess
+import shlex
 
 
-async def main() -> None:
-    url = sys.argv[1]
-    await parse_one.callback("ai_assistant_parsers_spbu", RESULTS_PATH, url)
+URL = sys.argv[1]
+PYTHON_PATH = sys.executable
+COMMAND = f"{PYTHON_PATH} -m ai_assistant_parsers_core.cli parse-one ai_assistant_parsers_spbu output/parse_one {URL}"
 
-
-if __name__ == "__main__":
-    asyncio.run(main())
+subprocess.run(shlex.split(COMMAND))

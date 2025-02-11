@@ -35,7 +35,7 @@ _ALLOWED_SUBDOMAINS_PATHS = [
 ]
 
 
-class TMContentParser(SimpleSelectDomainBaseParser):
+class TMContentMultipleDomainsParser(SimpleSelectDomainBaseParser):
     def __init__(self) -> None:
         super().__init__(
             allowed_domains_paths=_ALLOWED_SUBDOMAINS_PATHS,

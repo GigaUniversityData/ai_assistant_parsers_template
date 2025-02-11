@@ -1,5 +1,5 @@
 from .tm_content import (
-    TMContentParser,
+    TMContentMultipleDomainsParser,
 )
 
-__all__ = ["TMContentParser"]
+__all__ = ["TMContentMultipleDomainsParser"]

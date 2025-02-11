@@ -1,0 +1,23 @@
+from .mmenstipendii_konkursygranty_inyekonkursygranty import (
+    MmenStipendiiKonkursyGrantyInyeKonkursyGrantyStudentsDomainParser,
+)
+from .mmenstipendii_konkursygranty_konkursygrantyspbgu import (
+    MmenStipendiiKonkursyGrantyKonkursyGrantySpbguStudentsDomainParser,
+)
+from .mmenstipendii_konkursygranty_molodezhnayapremiya import (
+    MmenStipendiiKonkursyGrantyMolodezhnayaPremiyaStudentsDomainParser,
+)
+from .mmenstipendii_stipendii___aobuchayushchikhsyaspbgu import (
+    MmenStipendiiStipendiiZayavkiNaImennyeIPersonalnyeStipendiiDlyaObuchayushchikhsyaSpbguStudentsDomainParser,
+)
+from .mmenstipendii_stipendii___iyadlyastudentov12kursov import (
+    MmenStipendiiStipendiiPovyshennayaSotsialnayaStipendiyaDlyaStudentov12KursovStudentsDomainParser,
+)
+
+__all__ = [
+    "MmenStipendiiKonkursyGrantyInyeKonkursyGrantyStudentsDomainParser",
+    "MmenStipendiiKonkursyGrantyKonkursyGrantySpbguStudentsDomainParser",
+    "MmenStipendiiKonkursyGrantyMolodezhnayaPremiyaStudentsDomainParser",
+    "MmenStipendiiStipendiiPovyshennayaSotsialnayaStipendiyaDlyaStudentov12KursovStudentsDomainParser",
+    "MmenStipendiiStipendiiZayavkiNaImennyeIPersonalnyeStipendiiDlyaObuchayushchikhsyaSpbguStudentsDomainParser",
+]

@@ -1,5 +1,5 @@
 from .abiturient_main import (
-    AbiturientMainPageParser,
+    MainAbiturientPageParser,
 )
 
-__all__ = ["AbiturientMainPageParser"]
+__all__ = ["MainAbiturientPageParser"]

@@ -1,0 +1,5 @@
+from .obuchayushchimsya_oprokh__aktik_32staff_ynlovyagin import (
+    ObuchayushchimsyaOProkhozhdeniiPraktik32StaffYNLovyaginCsdDomainParser,
+)
+
+__all__ = ["ObuchayushchimsyaOProkhozhdeniiPraktik32StaffYNLovyaginCsdDomainParser"]

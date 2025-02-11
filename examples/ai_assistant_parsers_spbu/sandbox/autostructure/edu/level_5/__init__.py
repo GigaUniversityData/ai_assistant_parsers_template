@@ -1,0 +1,7 @@
+from .uchebnayadeyatelnost_stu__enie_studentuslushatelyu import (
+    UchebnayaDeyatelnostStudentuSlushatelyuOrganizatsiyaObucheniyaAnglijskomuYazyku11UchebnoeUpravlenieStudentuSlushatelyuEduDomainParser,
+)
+
+__all__ = [
+    "UchebnayaDeyatelnostStudentuSlushatelyuOrganizatsiyaObucheniyaAnglijskomuYazyku11UchebnoeUpravlenieStudentuSlushatelyuEduDomainParser"
+]

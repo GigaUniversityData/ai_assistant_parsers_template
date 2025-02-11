@@ -4,7 +4,7 @@ from ai_assistant_parsers_core.parsers.utils.clean_blocks import clean_one_by_se
 from ai_assistant_parsers_core.parsers import SimpleSelectDomainBaseParser
 
 
-class AbiturientMainPageParser(SimpleSelectDomainBaseParser):
+class MainAbiturientPageParser(SimpleSelectDomainBaseParser):
     def __init__(self) -> None:
         super().__init__(
             allowed_domains_paths=["abiturient.spbu.ru"],

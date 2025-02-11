@@ -19,6 +19,7 @@ html5lib = "^1.1"
 [tool.poetry.group.dev.dependencies]
 mkinit = "^1.1.0"
 black = "^24.8.0"
+ai-assistant-parsers-cli-tools = {git = "https://github.com/GigaUniversityData/ai_assistant_parsers_cli_tools"}
 
 [build-system]
 requires = ["poetry-core"]

@@ -12,14 +12,18 @@ __all__ = ["PARSERS", "PARSING_REFINERS"]
 
 
 PARSERS: list[ABCParser] = [
+    # "Page" парсеры
+    MainAbiturientPageParser(),
+
+    # "Multiple domains" парсеры
+    TMContentMultipleDomainsParser(),
+
+    # "Domain" парсеры
     AbiturientDomainParser(),
     CampusDomainParser(),
     FundDomainParser(),
-    PayDomainParser(),
     StudsovetDomainParser(),
     WWWDomainParser(),
-    TMContentParser(),
-    AbiturientMainPageParser(),
 
     UniversalParser(),
 ]

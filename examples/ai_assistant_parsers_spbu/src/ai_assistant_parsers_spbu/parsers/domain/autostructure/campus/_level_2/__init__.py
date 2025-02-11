@@ -1,0 +1,35 @@
+from .dejstviyaprozhivayushchi__zygsvasilevasostudentami import (
+    DejstviyaProzhivayushchikhPriVozniknoveniiVneshtatnykhSituatsij8VctrechaProrektoraSpbguPoEkspluatatsiiMaterialnoTekhnicheskojBazyGSVasilevaSoStudentamiCampusDomainParser,
+)
+from .informatsiyaoremontnykhr__0tipovoesosnayanierjvyfn import (
+    InformatsiyaORemontnykhRabotakh150TipovoesosnayanierjvyfnCampusDomainParser,
+)
+from .informatsiyaoremontnykhr__mekspluatatsiizdanijuoeo import (
+    InformatsiyaORemontnykhRabotakh148RemontyeRabotyVypolnyaemyeOtdelomEkspluatatsiiZdanijUoeoCampusDomainParser,
+)
+from .kontakty_138nachalnikotd__zdanij2vasilevskijostrov import (
+    Kontakty138NachalnikOtdelaEkspluatatsiiZdanij2VasilevskijOstrovCampusDomainParser,
+)
+from .kontakty_139nachalnikotdeladopolnitelnykhuslug import (
+    Kontakty139NachalnikOtdelaDopolnitelnykhUslugCampusDomainParser,
+)
+from .kontakty_18otdelobsluzhivaniya import (
+    Kontakty18OtdelObsluzhivaniyaCampusDomainParser,
+)
+from .kontakty_20otdelokhranybazpraktikistudgorodka import (
+    Kontakty20OtdelOkhranyBazPraktikIStudgorodkaCampusDomainParser,
+)
+from .kontakty_4otdelposelenia import (
+    Kontakty4OtdelPoseleniaCampusDomainParser,
+)
+
+__all__ = [
+    "DejstviyaProzhivayushchikhPriVozniknoveniiVneshtatnykhSituatsij8VctrechaProrektoraSpbguPoEkspluatatsiiMaterialnoTekhnicheskojBazyGSVasilevaSoStudentamiCampusDomainParser",
+    "InformatsiyaORemontnykhRabotakh148RemontyeRabotyVypolnyaemyeOtdelomEkspluatatsiiZdanijUoeoCampusDomainParser",
+    "InformatsiyaORemontnykhRabotakh150TipovoesosnayanierjvyfnCampusDomainParser",
+    "Kontakty138NachalnikOtdelaEkspluatatsiiZdanij2VasilevskijOstrovCampusDomainParser",
+    "Kontakty139NachalnikOtdelaDopolnitelnykhUslugCampusDomainParser",
+    "Kontakty18OtdelObsluzhivaniyaCampusDomainParser",
+    "Kontakty20OtdelOkhranyBazPraktikIStudgorodkaCampusDomainParser",
+    "Kontakty4OtdelPoseleniaCampusDomainParser",
+]

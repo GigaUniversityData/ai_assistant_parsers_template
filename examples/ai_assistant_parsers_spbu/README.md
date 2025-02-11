@@ -12,27 +12,27 @@
 
 ## Список URL-адресов, для которых создавалась поддержка
 
-| URL-адрес                       | Парсер                   |
-|---------------------------------|--------------------------|
-| https://spbu.ru                 | WWWDomainParser          |
-| https://students.spbu.ru        | TMContentParser          |
-| https://studsovet.spbu.ru       | StudsovetDomainParser    | 
-| https://abiturient.spbu.ru      | AbiturientMainPageParser | 
-| https://nauka.spbu.ru           | TMContentParser          | 
-| https://mil.spbu.ru             | TMContentParser          | 
-| https://ifea.spbu.ru            | TMContentParser          | 
-| https://guestbook.spbu.ru       | TMContentParser          |  
-| https://edu.spbu.ru             | TMContentParser          | 
-| https://campus.spbu.ru          | CampusDomainParser       | 
-| https://library.spbu.ru         | TMContentParser          |
-| https://pay.spbu.ru             | PayDomainParser          | 
-| https://hortus.spbu.ru          | UniversalParser          | 
-| https://horizont.spbu.ru        | TMContentParser          | 
-| https://fund.spbu.ru            | FundDomainParser         | 
-| https://diaghilevmuseum.spbu.ru | TMContentParser          | 
-| https://cdop.chem.spbu.ru       | TMContentParser          | 
-| https://agym.spbu.ru            | TMContentParser          | 
-| https://300.spbu.ru             | UniversalParser          | 
-| https://philosophy.spbu.ru      | TMContentParser          |
-| https://apmath.spbu.ru          | TMContentParser          |
-| https://csd.spbu.ru             | TMContentParser          |
+| URL-адрес                         | Парсер                         |
+|-----------------------------------|--------------------------------|
+| https://abiturient.spbu.ru        | MainAbiturientPageParser       | 
+| https://students.spbu.ru/*        | TMContentMultipleDomainsParser |
+| https://nauka.spbu.ru/*           | TMContentMultipleDomainsParser | 
+| https://mil.spbu.ru/*             | TMContentMultipleDomainsParser | 
+| https://ifea.spbu.ru/*            | TMContentMultipleDomainsParser | 
+| https://guestbook.spbu.ru/*       | TMContentMultipleDomainsParser |  
+| https://edu.spbu.ru/*             | TMContentMultipleDomainsParser | 
+| https://library.spbu.ru/*         | TMContentMultipleDomainsParser |
+| https://horizont.spbu.ru/*        | TMContentMultipleDomainsParser | 
+| https://diaghilevmuseum.spbu.ru/* | TMContentMultipleDomainsParser | 
+| https://cdop.chem.spbu.ru/*       | TMContentMultipleDomainsParser | 
+| https://agym.spbu.ru/*            | TMContentMultipleDomainsParser | 
+| https://philosophy.spbu.ru/*      | TMContentMultipleDomainsParser |
+| https://apmath.spbu.ru/*          | TMContentMultipleDomainsParser |
+| https://csd.spbu.ru/*             | TMContentMultipleDomainsParser |
+| https://abiturient.spbu.ru/*      | AbiturientDomainParser         | 
+| https://campus.spbu.ru/*          | CampusDomainParser             | 
+| https://fund.spbu.ru/*            | FundDomainParser               | 
+| https://studsovet.spbu.ru/*       | StudsovetDomainParser          | 
+| https://spbu.ru/*                 | WWWDomainParser                |
+| https://hortus.spbu.ru/*          | UniversalParser                | 
+| https://300.spbu.ru/*             | UniversalParser                | 

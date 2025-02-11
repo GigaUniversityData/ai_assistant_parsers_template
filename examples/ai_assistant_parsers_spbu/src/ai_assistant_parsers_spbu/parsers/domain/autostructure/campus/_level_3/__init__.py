@@ -1,0 +1,11 @@
+from .kontakty_139nachalnikotd__khuslug_21byuropropuskov import (
+    Kontakty139NachalnikOtdelaDopolnitelnykhUslug21ByuroPropuskovCampusDomainParser,
+)
+from .kontakty_139nachalnikotd__ovalnomnozhitelnyjtsentr import (
+    Kontakty139NachalnikOtdelaDopolnitelnykhUslug24KopirovalnoMnozhitelnyjTsentrCampusDomainParser,
+)
+
+__all__ = [
+    "Kontakty139NachalnikOtdelaDopolnitelnykhUslug21ByuroPropuskovCampusDomainParser",
+    "Kontakty139NachalnikOtdelaDopolnitelnykhUslug24KopirovalnoMnozhitelnyjTsentrCampusDomainParser",
+]
