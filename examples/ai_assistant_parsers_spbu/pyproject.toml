@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "AI Assistant Parsers SPBU"
+version = "0.5.1"
+description = ""
+authors = ["LEv145"]
+readme = "README.md"
+packages = [{include = "ai_assistant_parsers_spbu", from = "src"}]
+
+
+[tool.poetry.dependencies]
+python = "^3.12"
+ai-assistant-parsers-core = {git = "https://github.com/GigaUniversityData/ai_assistant_parsers_core"}
+click = "^8.1.7"
+fake-headers = "^1.0.2"
+aiohttp = "^3.10.5"
+html5lib = "^1.1"
+
+
+[tool.poetry.group.dev.dependencies]
+mkinit = "^1.1.0"
+black = "^24.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
