@@ -1,4 +1,4 @@
-# Туториал
+# Мои первые парсеры
 
 Добро пожаловать в туториал по использованию шаблона! 
 Этот пошаговый мануал поможет вам освоить основные принципы работы с нашим инструментом для извлечения данных из веб-страниц.
@@ -265,8 +265,6 @@ python -m scripts.mkinit
 
 Тогда наш итоговый `settings.py` будет выглядеть так:
 ```py
-from pathlib import Path
-
 from ai_assistant_parsers_core.parsers import ABCParser, UniversalParser
 from ai_assistant_parsers_core.refiners import (
     ABCParsingRefiner,
@@ -319,6 +317,3 @@ file:///home/lev145/Projects/SberAI/[имя_вашего_модуля]/output/pa
 ```
 
 Вы можете открыть эти файлы для просмотра извлеченных данных и оценки работы парсера.
-
-```{include} _additional_resources.md
-```
