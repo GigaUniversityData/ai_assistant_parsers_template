@@ -6,7 +6,5 @@
 about
 installation
 usage
-tutorial
-philosophy
-advanced_usage/index
+tutorials/index
 ```
