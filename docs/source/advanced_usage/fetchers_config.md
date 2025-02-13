@@ -4,7 +4,7 @@
 которые по URL-адресу извлекают данные с HTML страниц, 
 и возвращают HTML-код собираемой страницы.
 
-![Fetcher preview](../_static/images/fetcher_preview.png)
+![Fetcher preview](../_static/images/advanced_usage/fetchers_config/1.png)
 
 ## Фетчер по-умолчанию
 
