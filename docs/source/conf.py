@@ -24,6 +24,7 @@ extensions = [
     "sphinx_rtd_theme",
     "myst_parser",
     "sphinx_togglebutton",
+    "sphinxcontrib.images",
 ]
 
 templates_path = ["_templates"]
@@ -36,3 +37,7 @@ language = "ru"
 
 html_theme = "sphinx_rtd_theme"
 html_static_path = ["_static"]
+
+html_js_files = [
+    "js/custom.js",
+]

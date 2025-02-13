@@ -13,7 +13,8 @@
 - Уже созданный через шаблон проект
 - CSV-файл со списком URL-адресов для парсинга
 
-![alt](../_static/images/tutorals/organize_your_project/1.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/1.png
+```
 
 ```{note}
 Колонки могут отличаться
@@ -48,7 +49,10 @@ Commands:
 
 Для того чтобы команды работали с нашим CSV-файлом, нужно перенести наш CSV-файлов в `./sandbox/basic.csv`
 
-![alt](../_static/images/tutorals/organize_your_project/2.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/2.png
+```
+
+Теперь мы можем с ней работать
 
 Теперь можем запускать
 
@@ -58,7 +62,8 @@ Commands:
 
 И заглянем в `./sandbox/autostructure`
 
-![alt](../_static/images/tutorals/organize_your_project/4.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/4.png
+```
 
 Как мы видим автоматически сгенерировалась структура сайта
 
@@ -70,12 +75,14 @@ Commands:
 
 Мы можем зайти в каждый файлик и посмотреть какие URL адреса он парсит
 
-![alt](../_static/images/tutorals/organize_your_project/5.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/5.png
+```
 
 Как видно, парсер более высокого уровня (Например, level 0 выше level 1) обрабатывает все URL-адреса,
 которые могли бы обработать парсеры более низкого уровня. То есть структуру парсеров можно представить в виде дерева
 
-![alt](../_static/images/tutorals/organize_your_project/6.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/6.png
+```
 
 А ещё с помощью этих файлов мы можем исследовать структуру всего сайта!
 
@@ -97,7 +104,8 @@ Commands:
 
 Также поддерживается опция -l, позволяющая указать, какой диапазон уровней нас интересует, и другие интересные опции.
 
-![alt](../_static/images/tutorals/organize_your_project/8.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/8.png
+```
 
 Теперь мы имеем автоматически сгенерированную структуру парсеров доменов и умеем фильтровать URL-адреса.
 
@@ -105,11 +113,13 @@ Commands:
 
 Для начала скопируем `sandbox/autostructure` в папку `src/ai_assistant_parsers_tltsu/parsers/domain/autostructure`
 
-![alt](../_static/images/tutorals/organize_your_project/9.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/9.png
+```
 
 Теперь выберем домен для рассмотрения. Пусть это будет главный домен - `www`
 
-![alt](../_static/images/tutorals/organize_your_project/10.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/10.png
+```
 
 Будем писать парсеры по принципу сверху вниз:
 
@@ -122,7 +132,8 @@ Commands:
 
 Проще всего алгоритм представить визуально:
 
-![alt](../_static/images/tutorals/organize_your_project/11.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/11.png
+```
 
 ```{hint}
 Не забывайте, что для просмотра URL-адресов удобства вы всегда можете использовать `aap_cli filter` и его опции!
@@ -139,19 +150,23 @@ https://www.tltsu.ru/campus/sport-complex/ceny/, https://www.tltsu.ru/campus/spo
 
 Чтобы убрать парсер из области видимости можно просто в названии файла добавить в начало нижнее подчёркивание (`_`)
 
-![alt](../_static/images/tutorals/organize_your_project/12.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/12.png
+```
 
 Но для удобства можно убирать и папки!
 
-![alt](../_static/images/tutorals/organize_your_project/13.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/13.png
+```
 
 Как мы видим, нам повезло, и пришлось писать только один парсер - `WWWDomainParser`
 
-![alt](../_static/images/tutorals/organize_your_project/14.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/14.png
+```
 
 Осталось только обновить импорты
 
-![alt](../_static/images/tutorals/organize_your_project/15.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/15.png
+```
 
 К счастью, утилита `mkinit` игнорирует пути с нижним подчёркиванием (`_`), поэтому мы можем просто запустить ей командой:
 
@@ -159,17 +174,20 @@ https://www.tltsu.ru/campus/sport-complex/ceny/, https://www.tltsu.ru/campus/spo
 python3 -m scripts.mkinit
 ```
 
-![alt](../_static/images/tutorals/organize_your_project/16.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/16.png
+```
 
 Теперь главный домен у нас готов! Аналогично работает и с оставшимся доменом `priem`
 
 Тут нам немного не повезло и пришлось реализовывать 3 парсера, вместо одного
 
-![alt](../_static/images/tutorals/organize_your_project/17.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/17.png
+```
 
 Аналогично запускаем `mkinit`, чтобы получить красивую картину
 
-![alt](../_static/images/tutorals/organize_your_project/18.png)
+```{thumbnail} ../_static/images/tutorals/organize_your_project/18.png
+```
 
 Теперь парсеры доменов готовы!
 
@@ -177,4 +195,7 @@ python3 -m scripts.mkinit
 
 Но в зависимости от ваших вариантов использования вы можете использовать как парсеры нескольких доменов 
 (В папке `src/ai_assistant_parsers_tltsu/parsers/multiple_domains`), так и парсеры отдельных страниц
-(В папке `src/ai_assistant_parsers_tltsu/parsers/page`)!
+(В папке `src/ai_assistant_parsers_tltsu/parsers/page`)
+
+```{thumbnail} ../_static/images/tutorals/organize_your_project/19.png
+```

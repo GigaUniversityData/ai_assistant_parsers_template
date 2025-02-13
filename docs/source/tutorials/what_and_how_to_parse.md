@@ -26,11 +26,13 @@
 
 Вот первый пример страницы (https://chem.spbu.ru/research/nauchnaya-komissiya/meetings.html):
 
-![alt](./_static/images/philosophy_preview_1.png)
+```{thumbnail} ../_static/images/tutorals/what_and_how_to_parse/1.png
+```
 
 А вот второй (https://chem.spbu.ru/contact/study-office.html):
 
-![alt](./_static/images/philosophy_preview_2.png)
+```{thumbnail} ../_static/images/tutorals/what_and_how_to_parse/2.png
+```
 
 Как мы видим, на странице есть куча блоков, которые не меняются с изменением самой страницы.
 
@@ -39,8 +41,8 @@
 
 Например, для второго примера основным контентом будет:
 
-![alt](./_static/images/philosophy_preview_3.png)
-
+```{thumbnail} ../_static/images/tutorals/what_and_how_to_parse/3.png
+```
 
 ## Этапы парсинга
 
@@ -62,8 +64,8 @@
 
 Для нашего сайта весь основной контент будет под блоков с CSS-селектором `#content`:
 
-![alt](./_static/images/philosophy_preview_4.png)
-
+```{thumbnail} ../_static/images/tutorals/what_and_how_to_parse/4.png
+```
 
 ## Очистка
 
@@ -75,7 +77,8 @@
 - Иконка для печати страницы.
 - Иконка для отправки страницы по E-mail.
 
-![alt](./_static/images/philosophy_preview_5.png)
+```{thumbnail} ../_static/images/tutorals/what_and_how_to_parse/5.png
+```
 
 Их можно очистить с помощью хитрых CSS-селекторов:
 
@@ -93,10 +96,13 @@
 (Например, https://physmech.spbstu.ru/person/filimonov_aleksey_vladimirovich/):
 
 ![alt](./_static/images/philosophy_preview_6.png)
+```{thumbnail} ../_static/images/tutorals/what_and_how_to_parse/6.png
+```
 
 Мы видим, что на сайте присутствуют иконки:
 
-![alt](./_static/images/philosophy_preview_7.png)
+```{thumbnail} ../_static/images/tutorals/what_and_how_to_parse/7.png
+```
 
 > Но как нам передать смысл этих иконок в виде текста?
 
