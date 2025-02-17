@@ -8,8 +8,8 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-PROJECT_SLUG = getenv("PROJECT_SLUG", "{{cookiecutter.project_slug}}")
+MODULE_NAME = getenv("MODULE_NAME", "{{cookiecutter.project_slug}}")
 PYTHON_PATH = sys.executable
 
-COMMAND = f"{PYTHON_PATH} -m ai_assistant_parsers_core.cli parse-many {PROJECT_SLUG} output/parsing"
+COMMAND = f"{PYTHON_PATH} -m ai_assistant_parsers_core.cli parse-many {MODULE_NAME} output/parsing"
 subprocess.run(shlex.split(COMMAND))
