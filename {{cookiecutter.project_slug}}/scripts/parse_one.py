@@ -1,10 +1,16 @@
+from os import getenv
 import sys
 import subprocess
 import shlex
 
+from dotenv import load_dotenv
 
-URL = sys.argv[1]
+
+load_dotenv()
+
+PROJECT_SLUG = getenv("PROJECT_SLUG", "{{cookiecutter.project_slug}}")
 PYTHON_PATH = sys.executable
-COMMAND = f"{PYTHON_PATH} -m ai_assistant_parsers_core.cli parse-one {{cookiecutter.project_slug}} output/parse_one {URL}"
+url = sys.argv[1]
+COMMAND = f"{PYTHON_PATH} -m ai_assistant_parsers_core.cli parse-one {PROJECT_SLUG} output/parsing {url}"
 
 subprocess.run(shlex.split(COMMAND))
