@@ -8,7 +8,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-MODULE_NAME = getenv("MODULE_NAME", "{{cookiecutter.project_slug}}")
+MODULE_NAME = getenv("AAPC_MODULE_NAME", "{{cookiecutter.project_slug}}")
 PYTHON_PATH = sys.executable
 URL = sys.argv[1]
 
