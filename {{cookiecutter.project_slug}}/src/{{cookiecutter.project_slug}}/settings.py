@@ -17,3 +17,4 @@ PARSERS: list[ABCParser] = [
 PARSING_REFINERS: list[ABCParsingRefiner] = [
     DefaultRefiner(),
 ]
+DOMAIN_PATH = "{{cookiecutter.university_domain_path}}"
