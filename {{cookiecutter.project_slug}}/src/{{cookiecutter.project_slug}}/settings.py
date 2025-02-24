@@ -8,7 +8,7 @@ from {{cookiecutter.project_slug}}.parsers import *
 from {{cookiecutter.project_slug}}.refiners import *
 
 
-__all__ = ["PARSERS", "PARSING_REFINERS"]
+__all__ = ["PARSERS", "PARSING_REFINERS", "DOMAIN_PATH"]
 
 
 PARSERS: list[ABCParser] = [
